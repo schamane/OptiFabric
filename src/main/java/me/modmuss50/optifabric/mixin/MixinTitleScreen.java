@@ -5,7 +5,7 @@ import me.modmuss50.optifabric.mod.OptifineVersion;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.network.chat.Component;
+import net.minecraft.text.Text;
 import net.minecraft.util.SystemUtil;
 import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Final;
@@ -25,16 +25,16 @@ public abstract class MixinTitleScreen extends Screen {
 	@Shadow
 	private long backgroundFadeStart;
 
-	protected MixinTitleScreen(Component component_1) {
+	protected MixinTitleScreen(Text component_1) {
 		super(component_1);
 	}
 
-	@Inject(method = "init", at = @At("RETURN"))
+	@Inject(method = "init()V", at = @At("RETURN"))
 	private void init(CallbackInfo info) {
 		Optifabric.checkForErrors();
 	}
 
-	@Inject(method = "render", at = @At("RETURN"))
+	@Inject(method = "render(IIF)V", at = @At("RETURN"))
 	private void render(int int_1, int int_2, float float_1, CallbackInfo info) {
 		if (OptifineVersion.error == null) {
 			float fadeTime = this.doBackgroundFade ? (float) (SystemUtil.getMeasuringTimeMs() - this.backgroundFadeStart) / 1000.0F : 1.0F;

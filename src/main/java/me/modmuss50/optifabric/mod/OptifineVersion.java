@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import me.modmuss50.optifabric.patcher.ASMUtils;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.main.Main;
 import org.spongepowered.asm.lib.tree.ClassNode;
 import org.spongepowered.asm.lib.tree.FieldNode;
 import org.zeroturnaround.zip.ZipUtil;

@@ -29,12 +29,15 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 
+minecraft {
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}"
 	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	modCompile 'net.fabricmc.fabric-api:fabric-api:0.3.0+build.175'
+	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modCompile 'com.github.Chocohead:Fabric-ASM:c4ad22d'
 	include 'com.github.Chocohead:Fabric-ASM:c4ad22d'
@@ -48,10 +51,10 @@ dependencies {
 	include 'org.slf4j:slf4j-api:1.7.26'
 
 	//Used only in dev to generate the field names
-	compile ('net.fabricmc:stitch:0.1.2.49+') {
+	compile ('net.fabricmc:stitch:0.2.0.53+') {
 		transitive = false
 	}
-	include 'net.fabricmc:stitch:0.1.2.49+'
+	include 'net.fabricmc:stitch:0.2.0.53+'
 }
 
 import groovy.json.JsonOutput
